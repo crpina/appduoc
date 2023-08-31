@@ -26,7 +26,7 @@ export class LoginPage implements OnInit {
 
    if(this.userControler.validateLogin(this.me.yo,this.me.password)) {
 
-    this.router.navigate(['/home', this.me.yo])
+     this.router.navigate(['/home', this.me.yo])
    }else{
 
     

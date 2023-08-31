@@ -1,0 +1,32 @@
+.userCard{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.2);
+  }
+  
+  .userCard-img{
+    border-radius: 50%;
+    width: 20%;
+  }
+  
+  
+  .icon-header{
+      margin-left: 5px;
+  }
+  
+  .userCard-user-info{
+    margin-top: 2px;
+    padding: 2px;
+  
+  }
+  
+  .userCard-list{
+    width: 80%;
+  }
+  

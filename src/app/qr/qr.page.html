@@ -1,0 +1,29 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>qr</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <ion-tabs>
+
+    <ion-tab-bar >
+      <ion-tab-button [routerLink] = "['/user']" >
+        <ion-icon name="person"></ion-icon>
+        Usuario
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink] = "['/home']">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink] = "['/qr']">
+        <ion-icon name="qr-code"></ion-icon>
+        Codigo QR
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
+

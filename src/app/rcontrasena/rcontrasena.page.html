@@ -1,0 +1,68 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+    <ion-title>Recuperar contraseña</ion-title>
+    <ion-icon [routerLink] = "['/login']" name="log-in-outline" slot="end" size="large" class="icono-back-login"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <!-- caja formulario -->
+<div class="box-formulario">
+
+
+  <div class="inputs-form">
+  <div class="box-img">
+    <img src="../../assets/imagenes/Oh my good.jpg" alt="not found">
+  </div>
+
+
+  
+
+  <ion-list>
+    <ion-item class="item-login">  
+      <ion-label position="floating">Usuario</ion-label> 
+      <ion-input type="text" ></ion-input>
+    </ion-item>
+      
+    <ion-item class="item-login">  
+      <ion-label position="floating" >Correo Duoc</ion-label> 
+      <ion-input type="password"  ></ion-input>
+    </ion-item>
+
+    <div class="box-recuperar">
+      <ion-button class="boton-recuperar">Recuperar</ion-button>
+    </div>
+ 
+  </ion-list>
+  </div>
+</div>
+
+<div class="info">
+
+  <ion-list class="info">
+    
+    <h1 class="title-contact">Contáctanos</h1>
+    
+    <ion-row>
+      <ion-col>
+        <h2>Secretaria</h2>
+        <p> (+56) 44220 1098</p>
+        <p>(+56) 227120245</p>
+        <h2>WhatsApp:</h2>
+        <p>+56936639565</p>
+      </ion-col>
+
+      <ion-col>
+        <h2>Correo Intitucional</h2>
+        <p>DuocUc@gmail.cl</p>
+        <h2>Correo Secretaria</h2>
+        <p>DuocUcSecretaria@gmail.cl</p>
+      </ion-col>
+    </ion-row>
+
+  </ion-list>
+
+</div>
+
+</ion-content>
