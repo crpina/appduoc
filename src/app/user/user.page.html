@@ -22,7 +22,7 @@
       <ion-item>
         <!--Vista sin presionar el boton *editar* -->
         <ion-label class="userCard-user-info">Usuario</ion-label>
-        <ion-button class="userCard-user-info" slot="end" size="Default" shape="round">Editar</ion-button>
+        
       </ion-item>
       <ion-item>
         <!--Vista sin presionar el boton *editar* -->
@@ -44,12 +44,13 @@
     </ion-list>
   </ion-card>
 
+  <ion-input label="Introduzca nuevo nombre de usuario" label-placement="floating" fill="outline" placeholder="Introduzca nuevo usuario"></ion-input>
 
 
-
+  <!-- barra navegacions -->
   <ion-tabs>
     <ion-tab-bar >
-      <ion-tab-button [routerLink] = "['/user']">
+      <ion-tab-button >
         <ion-icon name="person"></ion-icon>
         Usuario
       </ion-tab-button>

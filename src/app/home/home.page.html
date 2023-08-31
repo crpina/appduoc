@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
    <img src="../../assets/imagenes/Logo_DuocUC.svg.png" alt="Img not Found" class="imagenheader">
-   <ion-icon name="close-outline" slot="end" size="large" class="icon-header"></ion-icon>
+   <ion-icon [routerLink] = "['/login']" name="close-outline" slot="end" size="large" class="icon-header"></ion-icon>
   </ion-toolbar>
 </ion-header>
 
@@ -18,7 +18,7 @@
   </div>
   
 
-
+  <!-- barra navegacions -->
   <ion-tabs>  
     <ion-tab-bar >
       <ion-tab-button [routerLink] = "['/user']" >
@@ -26,7 +26,7 @@
         Usuario
       </ion-tab-button>
 
-      <ion-tab-button [routerLink] = "['/home']">
+      <ion-tab-button >
         <ion-icon name="home"></ion-icon>
         Home
       </ion-tab-button>
