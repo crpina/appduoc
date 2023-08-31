@@ -1,0 +1,40 @@
+<ion-header [translucent]="true">
+  <ion-toolbar>
+   <img src="../../assets/imagenes/Logo_DuocUC.svg.png" alt="Img not Found" class="imagenheader">
+   <ion-icon name="close-outline" slot="end" size="large" class="icon-header"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content [fullscreen]="true">
+
+  <div class="caja1">
+    <div class="box-saludo">
+
+      <h1 class="saludo">Bienvenido {{usuario}}</h1> 
+      <img src="../../assets/imagenes/Entrada.jpeg" alt="Not Found" class="imagenmenu">
+      <h2 class="saludo">Duoc UC Viña</h2> 
+    
+    </div>
+  </div>
+  
+
+
+  <ion-tabs>  
+    <ion-tab-bar >
+      <ion-tab-button [routerLink] = "['/user']" >
+        <ion-icon name="person"></ion-icon>
+        Usuario
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink] = "['/home']">
+        <ion-icon name="home"></ion-icon>
+        Home
+      </ion-tab-button>
+
+      <ion-tab-button [routerLink] = "['/qr']">
+        <ion-icon name="qr-code"></ion-icon>
+        Codigo QR
+      </ion-tab-button>
+    </ion-tab-bar>
+  </ion-tabs>
+</ion-content>
