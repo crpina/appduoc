@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 interface Usuario {
   name: String
   password: String
+  categoria: String
 }
 
 @Injectable({
@@ -10,15 +11,17 @@ interface Usuario {
 })
 export class UserControlerService {
 
+
   constructor() { }
 
 
   private usuario: Usuario  = {
     name:"Cristopher",
-    password: "123"
+    password: "123",
+    categoria: "Estudiante"
   }
 
-
+  
   setNameUsuario(inPutName: String){
     this.usuario.name= inPutName;
   }
@@ -27,12 +30,20 @@ export class UserControlerService {
     return this.usuario.name;
   }
 
+  getCategoria():String{
+    return this.usuario.categoria;
+  }
+
   setPassword(inPutPassword: String){
     this.usuario.password= inPutPassword;
   }
 
   getPassword():String{
     return this.usuario.password;
+  }
+
+  getUsuario():Usuario{
+    return this.usuario;
   }
 
   validateLogin(nama: String, password: String){

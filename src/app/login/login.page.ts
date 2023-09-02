@@ -15,6 +15,7 @@ export class LoginPage implements OnInit {
     password:""
   }
 
+
   constructor(private router :Router, private userControler : UserControlerService, public toastController: ToastController ) { 
  
   }
@@ -23,7 +24,6 @@ export class LoginPage implements OnInit {
     
   }
 
-  
   async advertError(){
 
     const toast = await this.toastController.create({
@@ -40,16 +40,13 @@ export class LoginPage implements OnInit {
 
   goTohome(){
 
-   if(this.userControler.validateLogin(this.me.yo,this.me.password)) {
-
+   if(this.userControler.validateLogin(this.me.yo,this.me.password) ) {
       this.router.navigate(['/home', this.me.yo])
-   }else{
-      
+   }else{    
+     this.advertError();
    }
 
   }
 
-  Recuperar(){
-
-  }
+ 
 }
