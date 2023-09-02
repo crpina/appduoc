@@ -5,36 +5,63 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content >
 
-  <div class="caja1">
+  <div class="box-1" >
     <div class="box-saludo">
-
-      <h1 class="saludo">Bienvenido {{usuario}}</h1> 
+      <p class="saludo">Bienvenido {{usuario}}</p> 
       <img src="../../assets/imagenes/Entrada.jpeg" alt="Not Found" class="imagenmenu">
-      <h2 class="saludo">Duoc UC Viña</h2> 
-    
+      <p class="saludo">Duoc UC Viña</p> 
     </div>
   </div>
   
 
+
+
+  
+  <ion-grid class="box-2">
+    <ion-row>
+      <ion-col class="opcion-menu"  >
+        <ion-tab-button [routerLink] =  "['/home/asistencia']">
+          <img  class="imagen-opciones-menu" src="../../assets/imagenes/asis2.png" alt="">
+          <p class="opcion-menu-text">Asistencia</p>
+        </ion-tab-button>
+         
+      </ion-col>
+
+      <ion-col class="opcion-menu" >
+        <ion-tab-button [routerLink] =  "['/home/ramo']">
+          <img  class="imagen-opciones-menu" src="../../assets/imagenes/materias.png" alt="">
+          <p class="opcion-menu-text">Ramos</p>
+        </ion-tab-button>
+      </ion-col>
+    </ion-row>
+
+    
+
+  </ion-grid>
+
+
+
+
   <!-- barra navegacions -->
-  <ion-tabs>  
-    <ion-tab-bar >
-      <ion-tab-button [routerLink] = "['/user']" >
-        <ion-icon name="person"></ion-icon>
-        Usuario
-      </ion-tab-button>
+    <ion-tabs>  
+      <ion-tab-bar >
+        <ion-tab-button [routerLink] = "['/user']" >
+          <ion-icon name="person"></ion-icon>
+          Usuario
+        </ion-tab-button>
 
-      <ion-tab-button >
-        <ion-icon name="home"></ion-icon>
-        Home
-      </ion-tab-button>
+        <ion-tab-button >
+          <ion-icon name="home"></ion-icon>
+          Home
+        </ion-tab-button>
 
-      <ion-tab-button [routerLink] = "['/qr']">
-        <ion-icon name="qr-code"></ion-icon>
-        Codigo QR
-      </ion-tab-button>
-    </ion-tab-bar>
-  </ion-tabs>
+        <ion-tab-button [routerLink] = "['/qr']">
+          <ion-icon name="qr-code"></ion-icon>
+          Codigo QR
+        </ion-tab-button>
+      </ion-tab-bar>
+    </ion-tabs>
+
 </ion-content>
