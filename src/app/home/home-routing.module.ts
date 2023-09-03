@@ -14,7 +14,11 @@ const routes: Routes = [
   {
     path: 'ramo',
     loadChildren: () => import('./ramo/ramo.module').then( m => m.RamoPageModule)
+  },  {
+    path: 'crear-ramo',
+    loadChildren: () => import('./crear-ramo/crear-ramo.module').then( m => m.CrearRamoPageModule)
   }
+
 ];
 
 @NgModule({

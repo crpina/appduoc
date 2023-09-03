@@ -9,13 +9,13 @@
 
   <div class="box-1" >
     <div class="box-saludo">
-      <p class="saludo">Bienvenido {{usuario.name}}</p> 
+      <p class="saludo">Bienvenido {{usuario.name}}</p>
       <img src="../../assets/imagenes/Entrada.jpeg" alt="Not Found" class="imagenmenu">
-      <p class="saludo">Duoc UC Viña</p> 
+      <p class="saludo">Duoc UC Viña</p>
     </div>
   </div>
-  
-  
+
+
   <ion-grid class="box-2">
     <ion-row>
       <ion-col class="opcion-menu"  >
@@ -23,7 +23,7 @@
           <img  class="imagen-opciones-menu" src="../../assets/imagenes/asis2.png" alt="">
           <p class="opcion-menu-text">Asistencia</p>
         </ion-tab-button>
-         
+
       </ion-col>
 
       <ion-col *ngIf="usuario.categoria === 'Profesor' " class="opcion-menu" >
@@ -36,18 +36,18 @@
 
     <ion-row *ngIf="usuario.categoria === 'Profesor' ">
       <ion-col class="opcion-menu">
-      <ion-tab-button >
+      <ion-tab-button [routerLink] = "['/home/crear-ramo']">
         <img  class="imagen-opciones-menu" src="../../assets/imagenes/generarRamo.png" alt="">
         <p class="opcion-menu-text">Generar ramo</p>
       </ion-tab-button>
       </ion-col>
     </ion-row>
 
-  
+
   </ion-grid>
 
   <!-- barra navegacions -->
-    <ion-tabs>  
+    <ion-tabs>
       <ion-tab-bar >
         <ion-tab-button [routerLink] = "['/user']" >
           <ion-icon name="person"></ion-icon>
