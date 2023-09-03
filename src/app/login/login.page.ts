@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserControlerService } from '../user-controler.service';
+import { UserControlerService, Usuario } from '../user-controler.service';
 import { ToastController } from '@ionic/angular';
 
 @Component({
@@ -10,9 +10,10 @@ import { ToastController } from '@ionic/angular';
 })
 export class LoginPage implements OnInit {
 
-  me={
-    yo:"",
-    password:""
+  me ={
+    name:"",
+    password:"",
+    
   }
 
 
@@ -40,8 +41,8 @@ export class LoginPage implements OnInit {
 
   goTohome(){
 
-   if(this.userControler.validateLogin(this.me.yo,this.me.password) ) {
-      this.router.navigate(['/home', this.me.yo])
+   if(this.userControler.validateLogin(this.me.name,this.me.password) ) {
+      this.router.navigate(['/home'])
    }else{    
      this.advertError();
    }

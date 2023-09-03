@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 
-interface Usuario {
+export interface Usuario {
   name: String
   password: String
   categoria: String
@@ -12,48 +12,39 @@ interface Usuario {
 export class UserControlerService {
 
 
+  
+ currentUsuer: Usuario | undefined;
+
   constructor() { }
 
 
-  private usuario: Usuario  = {
+  private usuarios: Usuario[]  = [{
     name:"Cristopher",
     password: "123",
     categoria: "Estudiante"
-  }
+  },
+  {
+    name:"Jesus",
+    password: "321",
+    categoria: "Profesor"
+  }]
 
-  
-  setNameUsuario(inPutName: String){
-    this.usuario.name= inPutName;
-  }
 
-  getNameUsuario():String{
-    return this.usuario.name;
-  }
 
-  getCategoria():String{
-    return this.usuario.categoria;
-  }
-
-  setPassword(inPutPassword: String){
-    this.usuario.password= inPutPassword;
-  }
-
-  getPassword():String{
-    return this.usuario.password;
-  }
-
-  getUsuario():Usuario{
-    return this.usuario;
-  }
 
   validateLogin(nama: String, password: String){
 
-    if(nama == this.usuario.name && password == this.usuario.password){
+    for (const user of this.usuarios) {
+      
 
-      return true;
-    }else{
-      return false;
+      if(nama == user.name && password == user.password){  
+        this.currentUsuer = user
+        return true;
+      }
+
     }
+    return false;
+
 
   }
 

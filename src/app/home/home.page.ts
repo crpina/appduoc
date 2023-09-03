@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-
+import { UserControlerService, Usuario } from '../user-controler.service';
 
 @Component({
   selector: 'app-home',
@@ -9,14 +9,15 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class HomePage {
 
-  usuario: any;
+  usuario!: Usuario
+  
 
+  constructor(private activatedRoute: ActivatedRoute, private userS: UserControlerService ) {
 
-  constructor(private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(){
-    this.usuario = this.activatedRoute.snapshot.paramMap.get("User") 
+    this.usuario = this.userS.currentUsuer!;
   }
 
 }

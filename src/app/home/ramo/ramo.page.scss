@@ -1,0 +1,35 @@
+.ramo-box{
+
+    max-height: 150px;
+    max-width: 600px;
+    border-bottom: 1px solid grey;
+    margin: 20px;
+}
+
+.img-generar-qr{
+
+    height: 80px;
+    margin-left: 10px;
+}
+
+.box-imgen{
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: auto;
+
+}
+
+.caja-ramos{
+
+    display: flex;
+    flex-direction: column;
+    justify-items: center;
+    align-items: center;
+    padding: 20px;
+}
+
+.texto-imagen{
+    margin: 10px
+}
