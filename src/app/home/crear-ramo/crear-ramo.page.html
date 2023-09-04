@@ -5,39 +5,58 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">crearRamo</ion-title>
-    </ion-toolbar>
-  </ion-header>
-  <!-- formulario para crear ramo -->
-  <div>
-    <ion-item>
-      <label>Usuario: Jesus</label>
-    </ion-item>
-    <ion-item>
-      <ion-input label= "Ramo:" placeholder="Ingrese el nombre del ramo"></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-input label= "Seccion:" placeholder="Ingrese la sección"></ion-input>
-    </ion-item>
-    <ion-item>
-      <label >Activo</label>
-    </ion-item>
-    <ion-item>
-      <ion-datetime-button datetime="datetime"></ion-datetime-button>
 
-      <ion-modal [keepContentsMounted]="true">
-        <ng-template>
-          <ion-datetime id="datetime"></ion-datetime>
-        </ng-template>
-      </ion-modal>
+  <!-- formulario para crear ramo -->
+
+  <div class="caja-form">
+
+    <div class="caja-imagen">
+      <img class="imagen-crear-ramos" src="../../../assets/imagenes/ramosc.png" alt="">
+    </div>
+
+    <div class="formulario">
+      <ion-item>
+        <label>Usuario: {{name}}</label>
+      </ion-item>
+      <ion-item>
+        <ion-input label= "Ramo:" placeholder="Nombre ramo"> </ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-input label= "Seccion:" placeholder="Nombre seccion"></ion-input>
+      </ion-item>
+      <ion-item>
+        <label >Estado del ramo: Activo</label>
+      </ion-item>
+      
+      
+      <ion-item class="caja-fecha">
+
+      <div>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+      </div>
+
+       <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+
+      </ion-item>
+
+    </div>
+    
+    <ion-item>
+    <ion-button (click)="generarRamo()" class="boton-1">Generar Ramo</ion-button>
     </ion-item>
+    <p>{{a}}</p>
+  
 
   </div>
 
 
-    <ion-button class="boton-1">Generar Ramo</ion-button>
+
+    
+ 
 
 
   <!-- barra navegacions -->
