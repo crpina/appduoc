@@ -13,7 +13,7 @@ export class CrearRamoPage implements OnInit {
     }
 
     name!: String;
-    a = "hola"
+
 
     async advertError(){
 
@@ -36,11 +36,9 @@ export class CrearRamoPage implements OnInit {
 
     generarRamo(){
       
-      if(this.a == "hola"){
-        this.a = "adios";
-      }else{
+
       this.advertError();
-      }
+ 
 
     };
 
