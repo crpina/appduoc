@@ -9,8 +9,14 @@
      <img src="../../assets/imagenes/Logo_DuocUC.svg.png" alt="">
      </div>
 
+
+
      <div class="formulario">
        <div class="box-img">
+        <div *ngIf="showSpin" class="carga-box">
+          Cargando...
+          <mat-progress-bar  mode="indeterminate"></mat-progress-bar>
+         </div>
          <img class="img" src="../../assets/imagenes/alumnos-duoc-960x600.jpg" alt="not found">
        </div> 
        <ion-item class="item-login">  
@@ -34,7 +40,7 @@
      </div>
    </div>
  
- 
+  
  
 </ion-content>
  

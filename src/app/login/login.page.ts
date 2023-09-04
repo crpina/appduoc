@@ -1,14 +1,19 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { UserControlerService, Usuario } from '../user-controler.service';
+import { UserControlerService } from '../user-controler.service';
 import { ToastController } from '@ionic/angular';
+
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.page.html',
   styleUrls: ['./login.page.scss'],
 })
+
+
+
 export class LoginPage implements OnInit {
+
 
   me ={
     name:"",
@@ -38,11 +43,32 @@ export class LoginPage implements OnInit {
     toast.present()
   }
 
+  titulo = "material-spin"
+  notificacion = 0;
+  showSpin = false;
+  
+  loadD(){
+
+    this.showSpin =true;
+    setTimeout(() => {
+      this.showSpin =false;
+    }, 5000); 
+  }
+
+
 
   goTohome(){
 
-   if(this.userControler.validateLogin(this.me.name,this.me.password) ) {
-      this.router.navigate(['/home'])
+     
+
+    if(this.userControler.validateLogin(this.me.name,this.me.password) ) {
+      this.loadD();
+      
+      setTimeout(() => {
+        this.router.navigate(['/home']) 
+      }, 2500);
+
+      
    }else{    
      this.advertError();
    }
