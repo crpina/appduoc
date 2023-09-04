@@ -6,64 +6,83 @@
 </ion-header>
 
 <ion-content [fullscreen]="true">
-  <ion-card class="userCard">
+  <div>
+    <ion-card>
 
-    <!--Imagen del usuario -->
-    <!--Debe permitir modificar la foto-->
-    <img class="userCard-img" alt="Silhouette of a person's head" src="https://ionicframework.com/docs/img/demos/avatar.svg" />
+      <ion-card-header>
+        <div class="avatarDiv">
+          <img class="avatarPhoto" alt="Silhouette of a person's head"
+               src="https://ionicframework.com/docs/img/demos/avatar.svg"/>
+        </div>
+      </ion-card-header>
 
-    <!--Nombre del usuario -->
-    <ion-card-header>
-      <ion-card-title>Cristopher Piña<!--{{usuario}}--></ion-card-title>
-    </ion-card-header>
-
-    <!--Lista con la info del usuario-->
-    <ion-list class="userCard-list" lines="none">
+      <ion-card-content>
+        <ion-grid>
+          <ion-row class="ion-justify-content-center">
+            <ion-item lines="none">
+              <ion-label>Cristopher</ion-label>
+            </ion-item>
+            <ion-item lines="none">
+              <ion-label>Piña</ion-label>
+            </ion-item>
+          </ion-row>
+          <ion-row class="ion-justify-content-center">
+            <ion-item lines="none">
+              <ion-label>cr.pina@duocuc.cl</ion-label>
+            </ion-item>
+          </ion-row>
+        </ion-grid>
+      </ion-card-content>
+    </ion-card>
+    <div class="list">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="5" >
+            <ion-input label="Teléfono" label-placement="floating" fill="outline"
+                       placeholder="Ingrese nuevo número teléfonico"></ion-input>
+          </ion-col>
+          <ion-col size="5" class="buttonEdit">
+            <ion-button > Guardar</ion-button>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+    <!-- Inputs de cambio de informacion personal -->
+    <ion-list class="list" lines="none">
       <ion-item>
-        <!--Vista sin presionar el boton *editar* -->
-        <ion-label class="userCard-user-info">Usuario</ion-label>
-        
+        <ion-label>Telefono</ion-label>
+        <ion-button class="editButtom" slot="end"> Editar</ion-button>
       </ion-item>
       <ion-item>
-        <!--Vista sin presionar el boton *editar* -->
-        <ion-label class="userCard-user-info">Telefono</ion-label>
-        <ion-button class="userCard-user-info" slot="end" size="Default" shape="round">Editar</ion-button>
+        <ion-label>Contraseña</ion-label>
+        <ion-button class="editButtom" slot="end"> Editar</ion-button>
       </ion-item>
       <ion-item>
-        <!--Vista sin presionar el boton *editar* -->
-        <ion-label class="userCard-user-info">Direcion</ion-label>
-        <ion-button class="userCard-user-info" slot="end" size="Default" shape="round">Editar</ion-button>
+        <ion-label>Confirmar contraseña</ion-label>
+        <ion-button class="editButtom" slot="end"> Editar</ion-button>
       </ion-item>
-
-      <!--Vista presionando el boton editar -->
-      <ion-item>
-        <ion-input label="Introduzca nuevo nombre de usuario" label-placement="floating" fill="outline" placeholder="Introduzca nuevo usuario"></ion-input>
-        <ion-button slot="end" size="Default" shape="round">Guardar</ion-button>
-      </ion-item>
-
     </ion-list>
-  </ion-card>
+  </div>
 
-  <ion-input label="Introduzca nuevo nombre de usuario" label-placement="floating" fill="outline" placeholder="Introduzca nuevo usuario"></ion-input>
 
 
   <!-- barra navegacions -->
   <ion-tabs>
-    <ion-tab-bar >
-      <ion-tab-button >
+    <ion-tab-bar slot="bottom">
+      <ion-tab-button>
         <ion-icon name="person"></ion-icon>
         Usuario
       </ion-tab-button>
 
-      <ion-tab-button [routerLink] = "['/home']">
+      <ion-tab-button [routerLink]="['/home']">
         <ion-icon name="home"></ion-icon>
         Home
       </ion-tab-button>
 
-      <ion-tab-button [routerLink] = "['/qr']">
+      <ion-tab-button [routerLink]="['/qr']">
         <ion-icon name="qr-code"></ion-icon>
         Codigo QR
       </ion-tab-button>
     </ion-tab-bar>
-   </ion-tabs>
+  </ion-tabs>
 </ion-content>
