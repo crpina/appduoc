@@ -1,7 +1,19 @@
 .avatarDiv{
   display: flex;
   justify-content: center;
+  margin-top: 10px;
 }
+
+.caja-usuario{
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-items: center;
+  padding-top: 40px ;
+
+}
+
 
 .list{
   background-color: #ffffff;
@@ -9,6 +21,7 @@
   margin: 10px;
   padding: 10px;
   box-shadow: 0 0 10px #ccc;
+  min-width: 300px;
 }
 
 .buttonEdit{
@@ -27,4 +40,29 @@
   cursor: pointer;
 }
 
+.col-numer-fon{
 
+  size: 3fr;
+
+}
+
+.ame-user-item{
+
+  display: inline-flex;
+  width: auto;
+
+}
+
+.Usuario-1{
+
+  min-width: 300px;
+
+}
+
+.dato-user{
+
+ font-size: 18px;
+ margin: 10px;
+ color: gray;
+
+}
