@@ -17,6 +17,10 @@ const routes: Routes = [
   },  {
     path: 'crear-ramo',
     loadChildren: () => import('./crear-ramo/crear-ramo.module').then( m => m.CrearRamoPageModule)
+  },
+  {
+    path: 'qrgenerado',
+    loadChildren: () => import('./qrgenerado/qrgenerado.module').then( m => m.QrgeneradoPageModule)
   }
 
 ];

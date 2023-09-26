@@ -1,6 +1,6 @@
 <ion-header [style.visibility]="content_visibility">
   <ion-toolbar>
-    <ion-title class="title1">QR</ion-title>
+    <ion-title class="title1">Qr Generado</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -18,19 +18,16 @@
       [margin]="4"
       [scale]="1"
       [title]="'A custom title attribute'"
-      [width]="200"
+      [width]="300"
     ></qrcode>
   </div>
 
-  <ion-item>
-    <ion-button class="boton1" (click)="startScan()"> Escanear Codigo QR</ion-button>
-  </ion-item>
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">qrgenerado</ion-title>
+    </ion-toolbar>
+  </ion-header>
 
-  <ion-item *ngIf="scannedResult">
-    <ion-label class="ion-text-wrap">Resultado del Scaner: {{scannedResult}}</ion-label>
-  </ion-item>
-
-  <!-- barra navegacions -->
   <ion-tabs>
     <ion-tab-bar >
       <ion-tab-button [routerLink] = "['/user']" >
@@ -43,7 +40,10 @@
         Home
       </ion-tab-button>
 
+      <ion-tab-button [routerLink] = "['/qr']">
+        <ion-icon name="qr-code"></ion-icon>
+        Codigo QR
+      </ion-tab-button>
     </ion-tab-bar>
   </ion-tabs>
 </ion-content>
-

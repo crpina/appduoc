@@ -13,7 +13,7 @@ import { RamoPage } from './ramo.page';
     CommonModule,
     FormsModule,
     IonicModule,
-    RamoPageRoutingModule
+    RamoPageRoutingModule,
   ],
   declarations: [RamoPage]
 })
