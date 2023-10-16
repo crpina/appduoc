@@ -19,10 +19,7 @@
       <ion-card-content>
         <ion-grid>
           <ion-row class="ion-justify-content-center">
-              <p class="name-user-item" >Cristopher Piña</p>          
-          </ion-row>
-          <ion-row class="ion-justify-content-center">
-              <ion-label>cr.pana@duocuc.cl</ion-label>
+              <p class="name-user-item" >{{this.usuario.name}} {{this.usuario.apellido}}</p>          
           </ion-row>
         </ion-grid>
       </ion-card-content>
@@ -32,13 +29,13 @@
     <ion-list class="list" lines="none">
       <div >
         <label for=""></label>
-        <p class="dato-user">Telefono: +5692828383</p>
+        <p class="dato-user">Telefono: +56{{this.usuario.telefono}}</p>
       </div>
       <div>
-        <p class="dato-user">Sede: Duoc Uc Viña</p>
+        <p class="dato-user">Sede: {{this.usuario.sede}}</p>
       </div>
       <div>
-        <p class="dato-user">Carrera: Ingenieria en informatica
+        <p class="dato-user">Carrera: {{this.usuario.carrera}}</p>
       </div>
     </ion-list>
   </div>

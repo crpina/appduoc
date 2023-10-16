@@ -2,13 +2,20 @@
   text-align: center;
 }
 
-.boton-1{
-  margin-bottom: 5px;
-  margin-top: 20px;
-  max-width: 120px;
-  font-size: 12px;
-}
 
+.boton-recuperar{
+  max-width: 150px;
+  width: 150px;
+  color: rgb(255, 255, 255);
+
+}
+.caja-cobot-1{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  margin-top: 20px;
+}
 .caja-form{
   padding-top: 30px;
   display: flex;
@@ -26,10 +33,10 @@
 
 .formulario{
 
-  max-width: 900px;
   width: auto;
   min-width: 200px;
-
+  max-width: 900px;
+  
 }
 
 .caja-imagen{
@@ -37,5 +44,7 @@
   margin-bottom: 20px;
 
 }
+
+
 
 

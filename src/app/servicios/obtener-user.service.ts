@@ -3,7 +3,9 @@ import { retry, catchError} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import { HttpHeaders, HttpErrorResponse } from '@angular/common/http';
 import { HttpClient } from '@angular/common/http';
-import { Usuario} from '../user-controler.service';
+
+
+
 @Injectable({
   providedIn: 'root'
 })
@@ -12,14 +14,13 @@ export class ObtenerUserService {
   constructor(private http:HttpClient) { }
 
   apiURL = "https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/usuario/usuario"
+  
+  apiPostRamo ="https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/ramos/ramosgenerar"
 
-  httpOptions = {
-    headers: new HttpHeaders({
-    'Content-Type': 'application/json',
-    'Access-Control-Allow-Origin' :'*'
-    })
-  }
- 
+  apiGetRamo ='https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/ramos/ramosver'
+
+
+  //metodo para obtener datos de usuario en la base de datos
   getPosts(name: string, password: string):Observable<any>{
 
     const url = `${this.apiURL}?name=${name}&password=${password}`;
@@ -28,4 +29,56 @@ export class ObtenerUserService {
   }
 
 
-}
+  //metodo para guardar ramos en la base de datos
+  postDatos(data: any): Observable<any> {
+    
+   
+    const httpOptions = {
+          headers: new HttpHeaders({
+            'Content-Type': 'application/json',
+            'Access-Control-Allow-Origin': '*'
+          }),
+        };
+
+    return this.http.post(`${this.apiPostRamo}`, data, httpOptions);
+  
+  }
+
+
+  //metodo para obtener ramos de la base de datos
+
+  async getDatos(id: number){
+
+    const url = `${this.apiGetRamo}?id=${id}`;
+
+    const respuesta = await this.http.get(url).toPromise();
+    
+    if(respuesta === undefined){
+
+      return [];
+    }
+    
+    const Json = respuesta as Record<string,any>
+    console.log(Json);  
+
+    const ramos = Object.values(Json['items']).map((ramo: any) => {
+      return {
+        id: ramo['id_ramo'],
+        dueno: ramo['creador'],
+        nombre: ramo['nombre_ramo'],
+        seccion: ramo['seccion'],
+        fecha: ramo['fecha_creacion']
+      }
+    })
+    console.log(ramos);
+    
+    return ramos;
+
+  } 
+  
+}        
+
+  
+  
+
+

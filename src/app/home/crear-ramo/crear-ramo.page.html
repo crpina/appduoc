@@ -4,7 +4,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content [fullscreen]="true">
+<ion-content >
 
   <!-- formulario para crear ramo -->
 
@@ -16,39 +16,22 @@
 
     <div class="formulario">
       <ion-item>
-        <label>Usuario: {{name}}</label>
+        <ion-label>Usuario: {{this.usuario.name}}</ion-label>
       </ion-item>
       <ion-item>
-        <ion-input label= "Ramo:" placeholder="Nombre ramo"> </ion-input>
+        <ion-label>Ramo:</ion-label>
+        <ion-input [(ngModel)]="ramo.name"  placeholder="Nombre ramo"> </ion-input>
       </ion-item>
+
       <ion-item>
-        <ion-input label= "Seccion:" placeholder="Nombre seccion"></ion-input>
+        <ion-label>Seccion:</ion-label>
+        <ion-input [(ngModel)]="ramo.seccion" placeholder="Nombre seccion"></ion-input>
       </ion-item>
-      <ion-item>
-        <label >Estado del ramo: Activo</label>
-      </ion-item>
-
-
-      <ion-item class="caja-fecha">
-
-      <div>
-        <ion-datetime-button datetime="datetime"></ion-datetime-button>
-      </div>
-
-       <ion-modal [keepContentsMounted]="true">
-          <ng-template>
-            <ion-datetime id="datetime"></ion-datetime>
-          </ng-template>
-        </ion-modal>
-
-      </ion-item>
-
     </div>
 
     <ion-item>
-    <ion-button (click)="generarRamo()" class="boton-1">Generar Ramo</ion-button>
-    </ion-item>
-
+      <ion-button (click)="generarRamo(this.usuario.id, this.ramo.name, this.ramo.seccion)" class="boton-recuperar">Generar Ramo</ion-button> 
+    </ion-item> 
 
 
   </div>

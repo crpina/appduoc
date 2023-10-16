@@ -8,28 +8,26 @@
 <ion-content [fullscreen]="true">
 
   <!-- caja formulario -->
-<div class="box-formulario">
+  <div class="box-formulario">
+    <div class="inputs-form">
+      <div class="box-img">
+        <img src="../../assets/imagenes/Oh my good.jpg" alt="not found">
+      </div>
 
+      <ion-list>
 
-  <div class="inputs-form">
-  <div class="box-img">
-    <img src="../../assets/imagenes/Oh my good.jpg" alt="not found">
-  </div>
+        <ion-item class="item-login">
+          <ion-label position="floating" >Usuario Duoc</ion-label>
+          <ion-input type="password"  ></ion-input>
+        </ion-item>
 
-  <ion-list>
+        <div class="box-recuperar">
+          <ion-button [routerLink]="['/login']" class="boton-recuperar">Recuperar</ion-button>
+        </div>
 
-    <ion-item class="item-login">
-      <ion-label position="floating" >Correo Duoc</ion-label>
-      <ion-input type="password"  ></ion-input>
-    </ion-item>
-
-    <div class="box-recuperar">
-      <ion-button [routerLink]="['/login']" class="boton-recuperar">Recuperar</ion-button>
+      </ion-list>
     </div>
-
-  </ion-list>
   </div>
-</div>
 
 
 </ion-content>

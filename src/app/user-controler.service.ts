@@ -16,6 +16,14 @@ export interface Usuario {
   carrera: string
 }
 
+export interface Ramos {
+  id: number;
+  dueno: string;
+  nombre: string;
+  seccion: string;
+  fecha: string;
+}
+
 @Injectable({
   providedIn: 'root'
 })
@@ -24,6 +32,7 @@ export class UserControlerService {
 
   
   currentUsuer: Usuario = { id: 0, name: "", apellido: "", categoria: "", sede: "", telefono: "", carrera: "" };
+  listaRamos: Ramos[] = [];
 
   constructor(private api:ObtenerUserService) { }
 
@@ -62,6 +71,7 @@ export class UserControlerService {
 
     return response;
     
-}
+ }
+
 
 }
