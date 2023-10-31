@@ -5,22 +5,7 @@
 </ion-header>
 
 <ion-content [style.visibility]="content_visibility">
-  <div class="qrcodeImage">
-    <qrcode
-      [qrdata]="'Asistencia registrada con exito'"
-      [allowEmptyString]="true"
-      [ariaLabel]="'QR Code image with the following content...'"
-      [cssClass]="'center'"
-      [colorDark]="'#000000ff'"
-      [colorLight]="'#ffffffff'"
-      [elementType]="'canvas'"
-      [errorCorrectionLevel]="'M'"
-      [margin]="4"
-      [scale]="1"
-      [title]="'A custom title attribute'"
-      [width]="200"
-    ></qrcode>
-  </div>
+
 
   <ion-item>
     <ion-button class="boton1" (click)="startScan()"> Escanear Codigo QR</ion-button>
