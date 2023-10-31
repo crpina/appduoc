@@ -15,7 +15,8 @@ export class CrearRamoPage implements OnInit {
   ramo = {
 
     name: "",
-    seccion: ""
+    seccion: "",
+    clases: 0
   };
 
   constructor(private userS: UserControlerService,public toastController: ToastController, private obtenerUserServices: ObtenerUserService) {
@@ -25,6 +26,7 @@ export class CrearRamoPage implements OnInit {
   };
 
 
+  //toats error
   async advertError(){
 
     const toast = await this.toastController.create({
@@ -38,6 +40,7 @@ export class CrearRamoPage implements OnInit {
       toast.present()
   }
 
+  //toats guardado
   async advertGuardado(){
 
     const toast = await this.toastController.create({
@@ -52,27 +55,30 @@ export class CrearRamoPage implements OnInit {
   }
 
 
-
+ //se ejecuta al iniciar la pagina
   ngOnInit() {
     this.usuario = this.userS.currentUsuer;
   }
 
     
-  generarRamo(id: number, name: string, seccion: string) { 
+  //metodo para generar ramos y gardarlos en la base de datos
+  generarRamo(id: number, name: string, seccion: string, clases: number) { 
       
 
-    if(name != "" && seccion != "" && this.usuario.categoria == "Profesor"){
+    if(name != "" && seccion != "" && clases > 0 && this.usuario.categoria == "Profesor"){
 
 
       const data = {
         id: 0,
         name: "",
-        seccion: ""
+        seccion: "",
+        clases: 0
       };
 
       data.id = id;
       data.name = name;
       data.seccion = seccion;
+      data.clases = clases;
       
       this.obtenerUserServices.postDatos(data).subscribe(
         

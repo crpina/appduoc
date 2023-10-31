@@ -18,6 +18,7 @@
       <ion-item>
         <ion-label>Usuario: {{this.usuario.name}}</ion-label>
       </ion-item>
+
       <ion-item>
         <ion-label>Ramo:</ion-label>
         <ion-input [(ngModel)]="ramo.name"  placeholder="Nombre ramo"> </ion-input>
@@ -27,10 +28,15 @@
         <ion-label>Seccion:</ion-label>
         <ion-input [(ngModel)]="ramo.seccion" placeholder="Nombre seccion"></ion-input>
       </ion-item>
+
+      <ion-item>
+        <ion-label>Clases:</ion-label>
+        <ion-input [(ngModel)]="ramo.clases" placeholder="cantidad de clases"></ion-input>
+      </ion-item>
     </div>
 
     <ion-item>
-      <ion-button (click)="generarRamo(this.usuario.id, this.ramo.name, this.ramo.seccion)" class="boton-recuperar">Generar Ramo</ion-button> 
+      <ion-button (click)="generarRamo(this.usuario.id, this.ramo.name, this.ramo.seccion, this.ramo.clases)" class="boton-recuperar">Generar Ramo</ion-button> 
     </ion-item> 
 
 

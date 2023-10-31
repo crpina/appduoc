@@ -7,8 +7,8 @@
 <ion-content [style.visibility]="content_visibility">
   <div class="qrcodeImage">
     <qrcode
-      [qrdata]="'Asistencia registrada con exito'"
-      [allowEmptyString]="true"
+      [qrdata]="this.ramoid"
+      [allowEmptyString]="false"
       [ariaLabel]="'QR Code image with the following content...'"
       [cssClass]="'center'"
       [colorDark]="'#000000ff'"
@@ -22,11 +22,6 @@
     ></qrcode>
   </div>
 
-  <ion-header collapse="condense">
-    <ion-toolbar>
-      <ion-title size="large">qrgenerado</ion-title>
-    </ion-toolbar>
-  </ion-header>
 
   <ion-tabs>
     <ion-tab-bar >

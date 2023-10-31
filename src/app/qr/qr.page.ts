@@ -1,5 +1,8 @@
 import {Component, OnDestroy} from '@angular/core';
 import { BarcodeScanner } from "@capacitor-community/barcode-scanner";
+import { UserControlerService, Usuario } from '../user-controler.service';
+import { ObtenerUserService } from '../servicios/obtener-user.service';
+import { AlertController, AlertOptions, ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-qr',
@@ -9,10 +12,25 @@ import { BarcodeScanner } from "@capacitor-community/barcode-scanner";
 export class QrPage implements OnDestroy{
 
 
-  scannedResult: any;
+  scannedResult!: number;
   content_visibility = '';
 
-  constructor() { }
+
+  usuario!: number;
+  ramo!: number;
+
+
+
+  constructor( private usu: UserControlerService, private obtenerUserService: ObtenerUserService,public toastController: ToastController,private alertController: AlertController) { }
+
+
+  // ionViewDidEnter otra opcion
+  ngOnInit(){
+    this.usuario = this.usu.currentUsuer.id;
+    console.log(this.usuario);
+  }
+
+
 
   async checkPermission() {
     try {
@@ -41,7 +59,7 @@ export class QrPage implements OnDestroy{
       document.querySelector('body')?.classList.remove('scanner-active');
       this.content_visibility = '';
       if(result?.hasContent) {
-        this.scannedResult = result.content;
+        this.scannedResult = parseInt(result.content);
         console.log(this.scannedResult);
       }
     } catch(e) {
@@ -60,4 +78,54 @@ export class QrPage implements OnDestroy{
   ngOnDestroy(): void {
     this.stopScan();
   }
+
+
+  async advertGuardado(){
+
+    const toast = await this.toastController.create({
+  
+        message: "asistencia creado con exito",
+        duration: 1000,
+        position:"top"
+  
+  
+    });
+      toast.present()
+  }
+
+  async presentAlert( options: AlertOptions ) {
+    const alert = await this.alertController.create( options )
+    await alert.present()
+}
+
+
+
+  async GuardarAsistencia(ramoid: number,  usuarioid: number){
+
+
+      const data = {
+          ramoid: 0,
+          usuarioid: 0
+        
+      };
+
+      data.ramoid = ramoid;
+      data.usuarioid = usuarioid;
+      
+      const responst =  await this.obtenerUserService.postAsistencia(data);
+
+      await this.presentAlert({
+  
+        header: 'Respuesta',
+        message: responst,
+        buttons: ['OK']
+
+       }) 
+
+  };
+
+ 
+
+
+
 }

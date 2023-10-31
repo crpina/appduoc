@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-qrgenerado',
@@ -8,10 +9,21 @@ import { Component, OnInit } from '@angular/core';
 export class QrgeneradoPage implements OnInit {
 
   content_visibility = '';
+  
+  ramoid: any;
 
-  constructor() { }
+  constructor(private activedRoute: ActivatedRoute) { }
 
   ngOnInit() {
+
   }
+
+  ionViewDidEnter(){
+
+    this.ramoid = this.activedRoute.snapshot.paramMap.get('ramoid')!;
+    console.log("entre:" + this.ramoid);
+
+  }
+
 
 }

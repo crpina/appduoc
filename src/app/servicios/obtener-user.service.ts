@@ -19,6 +19,9 @@ export class ObtenerUserService {
 
   apiGetRamo ='https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/ramos/ramosver'
 
+  apiPostAsistencia = 'https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/asistenciaramo/asistenciaramo'
+
+  apiGetAsistencia = ''
 
   //metodo para obtener datos de usuario en la base de datos
   getPosts(name: string, password: string):Observable<any>{
@@ -45,7 +48,53 @@ export class ObtenerUserService {
   }
 
 
+    //metodo para guardar asistencias en la base de datos
+    async postAsistencia(data: any): Promise<any> {
+    
+   
+      const httpOptions = {
+            headers: new HttpHeaders({
+              'Content-Type': 'application/json',
+              'Access-Control-Allow-Origin': '*'
+            }),
+          };
+  
+      const respuesta = await this.http.post(`${this.apiPostAsistencia}`, data, httpOptions).toPromise();
+    
+      return respuesta;
+    }
+
+
   //metodo para obtener ramos de la base de datos
+
+  async getAsistencia(id: number){
+
+    const url = `${this.apiGetRamo}?id=${id}`;
+
+    const respuesta = await this.http.get(url).toPromise();
+    
+    if(respuesta === undefined){
+
+      return [];
+    }
+    
+    const Json = respuesta as Record<string,any>
+    console.log(Json);  
+
+    const asistencias = Object.values(Json['items']).map((asistencia: any) => {
+      return {
+        id: asistencia['id_ramo'],
+        dueno: asistencia['creador'],
+        nombre: asistencia['nombre_ramo'],
+      }
+    })
+    console.log(asistencias);
+    
+    return asistencias;
+
+  };
+  
+  //Metodo para mostrar asistencias
 
   async getDatos(id: number){
 
@@ -74,7 +123,9 @@ export class ObtenerUserService {
     
     return ramos;
 
-  } 
+  };
+
+
   
 }        
 
