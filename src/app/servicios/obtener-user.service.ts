@@ -21,7 +21,7 @@ export class ObtenerUserService {
 
   apiPostAsistencia = 'https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/asistenciaramo/asistenciaramo'
 
-  apiGetAsistencia = ''
+  apiGetAsistencia = 'https://ge414a617da31c3-ztr7hrus9sn370sw.adb.sa-santiago-1.oraclecloudapps.com/ords/admin/asistenciaramo/asistenciaramo'
 
   //metodo para obtener datos de usuario en la base de datos
   getPosts(name: string, password: string):Observable<any>{
@@ -67,35 +67,6 @@ export class ObtenerUserService {
 
   //metodo para obtener ramos de la base de datos
 
-  async getAsistencia(id: number){
-
-    const url = `${this.apiGetRamo}?id=${id}`;
-
-    const respuesta = await this.http.get(url).toPromise();
-    
-    if(respuesta === undefined){
-
-      return [];
-    }
-    
-    const Json = respuesta as Record<string,any>
-    console.log(Json);  
-
-    const asistencias = Object.values(Json['items']).map((asistencia: any) => {
-      return {
-        id: asistencia['id_ramo'],
-        dueno: asistencia['creador'],
-        nombre: asistencia['nombre_ramo'],
-      }
-    })
-    console.log(asistencias);
-    
-    return asistencias;
-
-  };
-  
-  //Metodo para mostrar asistencias
-
   async getDatos(id: number){
 
     const url = `${this.apiGetRamo}?id=${id}`;
@@ -124,8 +95,40 @@ export class ObtenerUserService {
     return ramos;
 
   };
+  
+  //Metodo para mostrar asistencias
 
 
+  
+  async getAsistencias(id: number){
+
+    const url = `${this.apiGetAsistencia}?id=${id}`;
+
+    const respuesta = await this.http.get(url).toPromise();
+    
+    if(respuesta === undefined){
+
+      return [];
+    }
+    
+    const Json = respuesta as Record<string,any>
+    console.log(Json);  
+
+    const asistencias = Object.values(Json['items']).map((asistencia: any) => {
+      return {
+        nameramo: asistencia['nameramo'],
+        cantidadasistencias: asistencia['cantidadasistencias'],
+        clases: asistencia['clases'],
+
+      }
+    })
+    console.log(asistencias);
+    
+    return asistencias;
+
+  };
+
+  
   
 }        
 

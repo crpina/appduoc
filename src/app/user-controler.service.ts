@@ -24,6 +24,12 @@ export interface Ramos {
   fecha: string;
 }
 
+export interface Asistencias {
+  nameramo: string;
+  cantidadasistencias: number;
+  clases: number;
+}
+
 @Injectable({
   providedIn: 'root'
 })

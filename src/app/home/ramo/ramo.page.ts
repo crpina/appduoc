@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Ramos, UserControlerService, Usuario } from '../../user-controler.service';
 import { ObtenerUserService } from 'src/app/servicios/obtener-user.service';
-import { Router } from '@angular/router';
+
 
 
 
@@ -16,7 +16,7 @@ export class RamoPage implements OnInit {
   listaRamos: Ramos[] = [];
   
 
-  constructor(private userS: UserControlerService,private obtenerUserService: ObtenerUserService, private router: Router) { }
+  constructor(private userS: UserControlerService,private obtenerUserService: ObtenerUserService) { }
 
   async ngOnInit() {
     this.usuario = this.userS.currentUsuer!;
