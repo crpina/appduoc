@@ -12,7 +12,7 @@ import { AlertController, AlertOptions, ToastController } from '@ionic/angular';
 export class QrPage implements OnDestroy{
 
 
-  scannedResult!: number;
+  scannedResult = 0;
   content_visibility = '';
 
 
@@ -74,17 +74,17 @@ export class QrPage implements OnDestroy{
     document.querySelector('body')?.classList.remove('scanner-active');
     this.content_visibility = '';
   }
-
+//
   ngOnDestroy(): void {
     this.stopScan();
   }
+//
 
-
-  async advertGuardado(){
+  async advertGuardadoError(){
 
     const toast = await this.toastController.create({
   
-        message: "asistencia creado con exito",
+        message: "asistencia  no creado con exito",
         duration: 1000,
         position:"top"
   
@@ -92,11 +92,12 @@ export class QrPage implements OnDestroy{
     });
       toast.present()
   }
+  
 
   async presentAlert( options: AlertOptions ) {
     const alert = await this.alertController.create( options )
     await alert.present()
-}
+  }
 
 
 
@@ -108,19 +109,28 @@ export class QrPage implements OnDestroy{
           usuarioid: 0
         
       };
-
+      
+      
       data.ramoid = ramoid;
       data.usuarioid = usuarioid;
-      
-      const responst =  await this.obtenerUserService.postAsistencia(data);
 
-      await this.presentAlert({
+
+      if(data.ramoid != 0 && data.usuarioid != 0 && data.ramoid != null && data.usuarioid != null){
+
+        const responst =  await this.obtenerUserService.postAsistencia(data);
+
+        await this.presentAlert({
   
-        header: 'Respuesta',
-        message: responst,
-        buttons: ['OK']
+          header: 'Exito',
+          message: ' asistencia creada con exito' + responst ,
+          buttons: ['OK']  
+        })
 
-       }) 
+      }else{
+        this.advertGuardadoError();
+      }  
+
+
 
   };
 

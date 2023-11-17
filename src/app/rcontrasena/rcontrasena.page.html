@@ -8,26 +8,32 @@
 <ion-content [fullscreen]="true">
 
   <!-- caja formulario -->
+
   <div class="box-formulario">
     <div class="inputs-form">
       <div class="box-img">
         <img src="../../assets/imagenes/Oh my good.jpg" alt="not found">
       </div>
-
+     
       <ion-list>
 
         <ion-item class="item-login">
-          <ion-label position="floating" >Usuario Duoc</ion-label>
-          <ion-input type="password"  ></ion-input>
+          <ion-input required="true" label="Correo Duoc:" type="email" placeholder="cr.pino@duocuc.cl"name="email" ></ion-input>
+        </ion-item>
+
+        <ion-item class="item-login">
+          <ion-input label="Asunto" required="true" type="text" name="subject"  ></ion-input>
+        </ion-item>
+
+        <ion-item class="item-login">
+          <ion-textarea label="Mensaje" required="true" type="text"  name="comments" ></ion-textarea>
         </ion-item>
 
         <div class="box-recuperar">
-          <ion-button [routerLink]="['/login']" class="boton-recuperar">Recuperar</ion-button>
+          <ion-button class="boton-recuperar" type="submit" value="nviar">Recuperar</ion-button>
         </div>
 
       </ion-list>
     </div>
   </div>
-
-
 </ion-content>

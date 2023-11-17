@@ -65,7 +65,7 @@ export class CrearRamoPage implements OnInit {
   generarRamo(id: number, name: string, seccion: string, clases: number) { 
       
 
-    if(name != "" && seccion != "" && clases > 0 && this.usuario.categoria == "Profesor"){
+    if(name != "" && seccion != "" && clases > 0 && this.usuario.categoria == "Profesor" && name.length >= 1 && seccion.length > 1){
 
 
       const data = {
