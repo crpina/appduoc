@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { UserControlerService, Usuario } from '../user-controler.service';
+import {Router} from '@angular/router';
 
 
 
@@ -13,12 +14,23 @@ export class HomePage {
   usuario!: Usuario;
   
 
-  constructor(private userS: UserControlerService  ) {
+  constructor(private userS: UserControlerService,private router: Router  ) {
 
   }
 
   ngOnInit(){
     this.usuario = this.userS.currentUsuer!;
+  }
+
+  async ionViewWillEnter(){
+    this.usuario = this.userS.currentUsuer!;
+  }
+
+  async salirLogin(){
+
+    localStorage.removeItem('ingresado');
+    await this.router.navigate(['/login'])
+
   }
 
   

@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
    <img src="../../assets/imagenes/Logo_DuocUC.svg.png" alt="Img not Found" class="imagenheader">
-   <ion-icon [routerLink] = "['/login']" name="close-outline" slot="end" size="large" ></ion-icon>
+   <ion-icon (click)="this.salirLogin()" name="close-outline" slot="end" size="large" ></ion-icon>
   </ion-toolbar>
 </ion-header>
 

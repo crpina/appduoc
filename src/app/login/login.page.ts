@@ -67,7 +67,8 @@ async goTohome(){
 
      
     if(response){  
-      this.loadD();
+      this.loadD(); 
+      localStorage.setItem('ingresado','true');
       //hace que se demore en redigir a home 2 segundos
       setTimeout(() => {
         this.router.navigate(['/home']) 
